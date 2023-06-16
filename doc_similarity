@@ -1,0 +1,16 @@
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Define two documents to compare
+document1 = "The dog in the yard."
+document2 = "The dog in the yard."
+
+# Create a CountVectorizer object to tokenize the documents
+vectorizer = CountVectorizer().fit_transform([document1, document2])
+
+# Calculate the cosine similarity between the two documents
+cosine_similarities = cosine_similarity(vectorizer[0], vectorizer[1])
+
+# Print the similarity score
+print("The similarity score between the two documents is: ", cosine_similarities[0][0])
